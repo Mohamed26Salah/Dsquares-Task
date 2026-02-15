@@ -29,6 +29,16 @@
 		ABD3AFC92F42737700F293BC /* Dsquares-taskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dsquares-taskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		ABD3B0072F4274BA00F293BC /* Exceptions for "Library" folder in "Dsquares-task" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CatalogFeature,
+			);
+			target = ABD3AFB12F42737600F293BC /* Dsquares-task */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		ABD3AFB42F42737600F293BC /* Dsquares-task */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -43,6 +53,14 @@
 		ABD3AFCC2F42737700F293BC /* Dsquares-taskUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Dsquares-taskUITests";
+			sourceTree = "<group>";
+		};
+		ABD3AFE92F42748400F293BC /* Library */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				ABD3B0072F4274BA00F293BC /* Exceptions for "Library" folder in "Dsquares-task" target */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -79,6 +97,7 @@
 				ABD3AFC22F42737700F293BC /* Dsquares-taskTests */,
 				ABD3AFCC2F42737700F293BC /* Dsquares-taskUITests */,
 				ABD3AFB32F42737600F293BC /* Products */,
+				ABD3AFE92F42748400F293BC /* Library */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +128,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				ABD3AFB42F42737600F293BC /* Dsquares-task */,
+				ABD3AFE92F42748400F293BC /* Library */,
 			);
 			name = "Dsquares-task";
 			packageProductDependencies = (
@@ -413,7 +433,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.salah.12488.Dsquares-task";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = NO;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
@@ -445,7 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.salah.12488.Dsquares-task";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = NO;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
