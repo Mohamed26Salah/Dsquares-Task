@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		ABD3B00A2F42868D00F293BC /* CatalogFeature in Frameworks */ = {isa = PBXBuildFile; productRef = ABD3B0092F42868D00F293BC /* CatalogFeature */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		ABD3AFC02F42737700F293BC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABD3B00A2F42868D00F293BC /* CatalogFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +103,7 @@
 				ABD3AFCC2F42737700F293BC /* Dsquares-taskUITests */,
 				ABD3AFB32F42737600F293BC /* Products */,
 				ABD3AFE92F42748400F293BC /* Library */,
+				ABD3B0082F42868D00F293BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +115,13 @@
 				ABD3AFC92F42737700F293BC /* Dsquares-taskUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		ABD3B0082F42868D00F293BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +145,7 @@
 			);
 			name = "Dsquares-task";
 			packageProductDependencies = (
+				ABD3B0092F42868D00F293BC /* CatalogFeature */,
 			);
 			productName = "Dsquares-task";
 			productReference = ABD3AFB22F42737600F293BC /* Dsquares-task.app */;
@@ -598,6 +612,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ABD3B0092F42868D00F293BC /* CatalogFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CatalogFeature;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ABD3AFAA2F42737600F293BC /* Project object */;
 }
