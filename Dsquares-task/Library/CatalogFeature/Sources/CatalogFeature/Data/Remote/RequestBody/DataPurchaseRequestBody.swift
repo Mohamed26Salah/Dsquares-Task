@@ -8,8 +8,13 @@
 import Foundation
 
 public struct DataPurchaseRequestBody: Sendable {
-    let referenceCode: String
-    let orderItems: [DataPurchaseOrderItem]
+    public let referenceCode: String
+    public let orderItems: [DataPurchaseOrderItem]
+    
+    public init(referenceCode: String, orderItems: [DataPurchaseOrderItem]) {
+        self.referenceCode = referenceCode
+        self.orderItems = orderItems
+    }
 }
 extension DataPurchaseRequestBody: JSONBuildingStrategy {
     enum CodingKeys: String, CodingKey {
@@ -25,9 +30,14 @@ extension DataPurchaseRequestBody: JSONBuildingStrategy {
     }
 }
 
-struct DataPurchaseOrderItem: Sendable {
-    let itemCode: String
-    let value: Double
+public struct DataPurchaseOrderItem: Sendable {
+    public let itemCode: String
+    public let value: Double
+    
+    public init(itemCode: String, value: Double) {
+        self.itemCode = itemCode
+        self.value = value
+    }
 }
 
 extension DataPurchaseOrderItem: JSONBuildingStrategy {

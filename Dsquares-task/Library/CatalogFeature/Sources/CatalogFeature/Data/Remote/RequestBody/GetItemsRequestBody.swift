@@ -8,12 +8,25 @@
 import Foundation
 
 public struct GetItemsRequestBody: Sendable {
-    let page: Int?
-    let pageSize: Int?
-    let name: String?
-    let categoryCode: String?
-    let rewardTypes: [String?]
-
+    public let page: Int?
+    public let pageSize: Int?
+    public let name: String?
+    public let categoryCode: String?
+    public let rewardTypes: [String?]
+    
+    public init(
+        page: Int? = nil,
+        pageSize: Int? = nil,
+        name: String? = nil,
+        categoryCode: String? = nil,
+        rewardTypes: [String?] = []
+    ) {
+        self.page = page
+        self.pageSize = pageSize
+        self.name = name
+        self.categoryCode = categoryCode
+        self.rewardTypes = rewardTypes
+    }
 }
 
 extension GetItemsRequestBody: JSONBuildingStrategy {
