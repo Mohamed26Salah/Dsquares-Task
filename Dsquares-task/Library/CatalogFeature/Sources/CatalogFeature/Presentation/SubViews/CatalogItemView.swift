@@ -56,17 +56,11 @@ struct CatalogItemView: View {
                 .font(.system(size: Metrics.titleFontSize))
                 .foregroundColor(Style.textColor)
             
-            HStack(spacing: Metrics.pointsSpacing) {
-                Text(pointsDescription)
-                    .font(.system(size: Metrics.pointsFontSize))
-                    .fontWeight(.bold)
-                    .foregroundColor(Style.textColor)
-                
-                Text("point")
-                    .font(.system(size: Metrics.pointsFontSize))
-                    .foregroundColor(Style.textColor)
-            }
-            .lineLimit(1)
+            Text(pointsDescription)
+                .font(.system(size: Metrics.pointsFontSize))
+                .fontWeight(.bold)
+                .foregroundColor(Style.textColor)
+                .lineLimit(1)
         }
         .padding(.vertical, Metrics.infoVerticalPadding)
         .padding(.horizontal, Metrics.infoHorizontalPadding)

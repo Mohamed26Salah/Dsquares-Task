@@ -12,11 +12,11 @@ import SwiftUI
 
 /// Presentation adapter responsible for transforming domain entities
 /// into UI-ready data structures.
-struct CatalogItemsAdapter {
+struct CatalogItemsAdapter: Equatable {
     
     // MARK: - Nested Types
     
-    struct Item: Identifiable, Sendable {
+    struct Item: Identifiable, Sendable, Equatable  {
         let id: String
         let code: String
         let name: String
@@ -37,12 +37,10 @@ struct CatalogItemsAdapter {
     }
     
     // MARK: - Properties
-    
     let items: [Item]
     let rewardTypes: [String]
     
     // MARK: - Initializers
-    
     /// Transforms domain entities into presentation models.
     init(items: [ItemEntity]) {
         self.items = items.map(Item.init(entity:))
@@ -50,18 +48,7 @@ struct CatalogItemsAdapter {
     }
     
     // MARK: - Private Helpers
-    
     private static func buildRewardTypes(from items: [ItemEntity]) -> [String] {
-        var seen: Set<String> = []
-        var result: [String] = []
-        
-        for item in items {
-            if !seen.contains(item.rewardType) {
-                seen.insert(item.rewardType)
-                result.append(item.rewardType)
-            }
-        }
-        
-        return result
+        Array(Set(items.map(\.rewardType))).sorted()
     }
 }

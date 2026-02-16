@@ -21,6 +21,7 @@ public struct CatalogView: View {
             filterView
             catalogGridView
         }
+        .animation(.default, value: viewModel.catalogItemsAdapter)
         .navigationTitle("Catalog")
         .onAppear {
             viewModel.onAppear()
@@ -49,7 +50,7 @@ public struct CatalogView: View {
     
     @ViewBuilder
     private var catalogGridView: some View {
-        ScrollView {
+        ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(
                 columns: [
                     GridItem(.flexible(), spacing: 16),
