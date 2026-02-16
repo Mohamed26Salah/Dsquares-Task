@@ -50,23 +50,24 @@ public final class DsquaresRepo: DsquaresRepoProtocol, Sendable {
     public func getItems(
         requestBody: GetItemsRequestBody
     ) async throws -> ItemsResponseEntity {
-        let endpoint = DsquaresEndpoint.getItems(
-           requestBody: requestBody
-        )
-        
-        let response = try await networkManager.request(
-            endpoint: endpoint,
-            responseType: DsquaresResponse<ItemsResponseDTO>.self
-        )
-        
-        guard let result = response.result else {
-            throw NetworkError.apiError(
-                statusCode: response.statusCode,
-                statusName: response.statusName,
-                message: response.message
-            )
-        }
-        return DTOMapper.toDomain(result)
+//        let endpoint = DsquaresEndpoint.getItems(
+//           requestBody: requestBody
+//        )
+//        
+//        let response = try await networkManager.request(
+//            endpoint: endpoint,
+//            responseType: DsquaresResponse<ItemsResponseDTO>.self
+//        )
+//        
+//        guard let result = response.result else {
+//            throw NetworkError.apiError(
+//                statusCode: response.statusCode,
+//                statusName: response.statusName,
+//                message: response.message
+//            )
+//        }
+//        return DTOMapper.toDomain(result)
+        return DTOMapper.toDomain(ItemsResponseDTO.mock())
     }
     
     /// Fetches detailed information for a specific catalog item.

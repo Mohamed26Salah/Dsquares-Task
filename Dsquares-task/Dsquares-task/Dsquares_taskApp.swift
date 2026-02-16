@@ -12,7 +12,7 @@ import CatalogFeature
 struct Dsquares_taskApp: App {
     var body: some Scene {
         WindowGroup {
-            CatalogView(viewModel: .init())
+            AuthenticationView()
         }
     }
 }

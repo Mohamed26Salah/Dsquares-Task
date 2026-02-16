@@ -12,6 +12,7 @@ final class SDKConfiguration: @unchecked Sendable {
     
     private(set) var apiKey: String?
     private(set) var accessToken: String?
+    #warning("Their was no BaseURL in the api documentaion, this is a fake URL it doesn't work!!")
     private(set) var baseURL: String = "https://giftcards-preprod.dsquares.com"
     private(set) var environment: Environment = .production
     private(set) var language: String = "en"
