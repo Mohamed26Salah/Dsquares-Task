@@ -11,7 +11,7 @@ import Foundation
 public protocol PurchaseUseCaseProtocol: Sendable {
     func execute(
         request: DataPurchaseRequestBody
-    ) async throws -> Purchase
+    ) async throws -> PurchaseEntity
 }
 
 // MARK: - Purchase Use Case Implementation
@@ -25,7 +25,7 @@ public struct PurchaseUseCase: PurchaseUseCaseProtocol {
     
     public func execute(
         request: DataPurchaseRequestBody
-    ) async throws -> Purchase {
+    ) async throws -> PurchaseEntity {
         return try await repository.purchase(requestBody: request)
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct FilterItemView: View {
     let filterName: String
     let isSelected: Bool
-    let onTap: () -> Void
+    let onTap: (String) -> Void
 
     var body: some View {
         Text(filterName)
@@ -27,7 +27,7 @@ struct FilterItemView: View {
                     .stroke(Style.borderColor, lineWidth: Metrics.borderWidth)
             )
             .onTapGesture {
-                onTap()
+                onTap(filterName)
             }
     }
 }
@@ -69,6 +69,6 @@ extension FilterItemView: @MainActor Equatable {
 }
 
 #Preview {
-    FilterItemView(filterName: "All", isSelected: true) {}
-    FilterItemView(filterName: "Electronics", isSelected: false) {}
+    FilterItemView(filterName: "All", isSelected: true) {test in}
+    FilterItemView(filterName: "Electronics", isSelected: false) {test in}
 }

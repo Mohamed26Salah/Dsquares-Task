@@ -1,5 +1,5 @@
 //
-//  Item.swift
+//  ItemsEntities.swift
 //  CatalogFeature
 //
 //  Created by Mohamed Salah on 16/02/2026.
@@ -8,15 +8,15 @@
 import Foundation
 
 // MARK: - Items Response Entity
-public struct ItemsResponse: Sendable {
+public struct ItemsResponseEntity: Sendable {
     public let totalItems: Int
     public let totalPages: Int
-    public let items: [Item]
+    public let items: [ItemEntity]
     
     public init(
         totalItems: Int,
         totalPages: Int,
-        items: [Item]
+        items: [ItemEntity]
     ) {
         self.totalItems = totalItems
         self.totalPages = totalPages
@@ -25,14 +25,14 @@ public struct ItemsResponse: Sendable {
 }
 
 // MARK: - Item Entity
-public struct Item: Sendable {
+public struct ItemEntity: Sendable {
     public let code: String
     public let name: String
     public let description: String?
     public let imageUrl: String?
     public let rewardType: String
     public let locked: Bool
-    public let denominations: [Denomination]
+    public let denominations: [DenominationEntity]
     
     public init(
         code: String,
@@ -41,7 +41,7 @@ public struct Item: Sendable {
         imageUrl: String?,
         rewardType: String,
         locked: Bool,
-        denominations: [Denomination]
+        denominations: [DenominationEntity]
     ) {
         self.code = code
         self.name = name
@@ -54,7 +54,7 @@ public struct Item: Sendable {
 }
 
 // MARK: - Denomination Entity
-public struct Denomination: Sendable {
+public struct DenominationEntity: Sendable {
     public let code: String
     public let name: String
     public let brand: String?

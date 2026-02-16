@@ -13,6 +13,11 @@ struct SearchBarView: View {
     @Binding var text: String
     let placeholder: String
     
+    
+    init(text: Binding<String>, placeholder: String = "Search For Offers...") {
+        self._text = text
+        self.placeholder = placeholder
+    }
     var body: some View {
         HStack(spacing: Metrics.horizontalSpacing) {
             imageView
@@ -33,8 +38,9 @@ struct SearchBarView: View {
     }
     
     private var imageView: some View {
-        Image(systemName: SystemImage.search)
-            .foregroundColor(Style.iconColor)
+        Image(SystemImage.search)
+            .resizable()
+            .frame(width: SystemImage.size, height: SystemImage.size)
     }
     
     @ViewBuilder
@@ -78,7 +84,8 @@ private enum Style {
 // MARK: - System Images
 
 private enum SystemImage {
-    static let search = "magnifyingglass"
+    static let search: ImageResource = .searchIcon
+    static let size: CGFloat = 16
 }
 
 

@@ -11,7 +11,7 @@ import Foundation
 public protocol GetItemsUseCaseProtocol: Sendable {
     func execute(
         request: GetItemsRequestBody
-    ) async throws -> ItemsResponse
+    ) async throws -> ItemsResponseEntity
 }
 
 // MARK: - Get Items Use Case Implementation
@@ -19,13 +19,13 @@ public struct GetItemsUseCase: GetItemsUseCaseProtocol {
     
     private let repository: DsquaresRepoProtocol
     
-    public init(repository: DsquaresRepoProtocol) {
+    public init(repository: DsquaresRepoProtocol = DsquaresRepo()) {
         self.repository = repository
     }
     
     public func execute(
         request: GetItemsRequestBody
-    ) async throws -> ItemsResponse {
+    ) async throws -> ItemsResponseEntity {
         return try await repository.getItems(
             requestBody: request
         )

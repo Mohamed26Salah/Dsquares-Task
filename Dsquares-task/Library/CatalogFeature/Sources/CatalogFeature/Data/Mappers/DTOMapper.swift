@@ -10,8 +10,8 @@ import Foundation
 // MARK: - DTO to Domain Mapper
 enum DTOMapper {
     
-    static func toDomain(_ dto: TokenResponseDTO) -> Token {
-        Token(
+    static func toDomain(_ dto: TokenResponseDTO) -> TokenEntity {
+        TokenEntity(
             tokenType: dto.tokenType,
             accessToken: dto.accessToken,
             expiresInMins: dto.expiresInMins,
@@ -19,16 +19,16 @@ enum DTOMapper {
         )
     }
     
-    static func toDomain(_ dto: ItemsResponseDTO) -> ItemsResponse {
-        ItemsResponse(
+    static func toDomain(_ dto: ItemsResponseDTO) -> ItemsResponseEntity {
+        ItemsResponseEntity(
             totalItems: dto.totalItems,
             totalPages: dto.totalPages,
             items: dto.items.map { toDomain($0) }
         )
     }
     
-    static func toDomain(_ dto: ItemDTO) -> Item {
-        Item(
+    static func toDomain(_ dto: ItemDTO) -> ItemEntity {
+        ItemEntity(
             code: dto.code,
             name: dto.name,
             description: dto.description,
@@ -39,8 +39,8 @@ enum DTOMapper {
         )
     }
     
-    static func toDomain(_ dto: DenominationDTO) -> Denomination {
-        Denomination(
+    static func toDomain(_ dto: DenominationDTO) -> DenominationEntity {
+        DenominationEntity(
             code: dto.code,
             name: dto.name,
             brand: dto.brand,
@@ -61,8 +61,8 @@ enum DTOMapper {
         )
     }
     
-    static func toDomain(_ dto: ItemDetailDTO) -> ItemDetail {
-        ItemDetail(
+    static func toDomain(_ dto: ItemDetailDTO) -> ItemDetailEntity {
+        ItemDetailEntity(
             brand: dto.brand,
             locked: dto.locked,
             categories: dto.categories,
@@ -75,16 +75,16 @@ enum DTOMapper {
         )
     }
     
-    static func toDomain(_ dto: PurchaseResponseDTO) -> Purchase {
-        Purchase(
+    static func toDomain(_ dto: PurchaseResponseDTO) -> PurchaseEntity {
+        PurchaseEntity(
             purchaseCode: dto.purchaseCode,
             orderedAt: dto.orderedAt,
             orders: dto.orders.map { toDomain($0) }
         )
     }
     
-    static func toDomain(_ dto: OrderItemDTO) -> OrderItem {
-        OrderItem(
+    static func toDomain(_ dto: OrderItemDTO) -> OrderItemEntity {
+        OrderItemEntity(
             rewardType: dto.rewardType,
             code: dto.code,
             value: dto.value,

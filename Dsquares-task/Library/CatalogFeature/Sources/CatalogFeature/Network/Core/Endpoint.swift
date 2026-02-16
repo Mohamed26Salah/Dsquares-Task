@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-protocol Endpoint: Sendable {
+public protocol Endpoint: Sendable {
     var baseURL: String { get }
     var path: String { get }
     var method: HTTPMethod { get }
@@ -17,7 +17,7 @@ protocol Endpoint: Sendable {
     var encoding: ParameterEncoding { get }
 }
 
-extension Endpoint {
+public extension Endpoint {
     var url: String {
         return baseURL + path
     }

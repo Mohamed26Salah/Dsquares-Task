@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Get Item Details Use Case Protocol
 public protocol GetItemDetailsUseCaseProtocol: Sendable {
-    func execute(code: String) async throws -> ItemDetail
+    func execute(code: String) async throws -> ItemDetailEntity
 }
 
 // MARK: - Get Item Details Use Case Implementation
@@ -21,7 +21,7 @@ public struct GetItemDetailsUseCase: GetItemDetailsUseCaseProtocol {
         self.repository = repository
     }
     
-    public func execute(code: String) async throws -> ItemDetail {
+    public func execute(code: String) async throws -> ItemDetailEntity {
         return try await repository.getItemDetails(code: code)
     }
 }

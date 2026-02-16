@@ -1,16 +1,16 @@
 import Foundation
 import Alamofire
 
-protocol NetworkManagerProtocol: Sendable {
+public protocol NetworkManagerProtocol: Sendable {
     func request<T: Decodable & Sendable>(
         endpoint: Endpoint,
         responseType: T.Type
     ) async throws -> T
 }
 
-actor NetworkManager: NetworkManagerProtocol {
+public actor NetworkManager: NetworkManagerProtocol {
     
-    static let shared = NetworkManager()
+    public static let shared = NetworkManager()
     
     private let session: Session
     private let decoder: JSONDecoder
@@ -28,7 +28,7 @@ actor NetworkManager: NetworkManagerProtocol {
         self.decoder.dateDecodingStrategy = .iso8601
     }
     
-    func request<T: Decodable & Sendable>(
+    public func request<T: Decodable & Sendable>(
         endpoint: Endpoint,
         responseType: T.Type
     ) async throws -> T {

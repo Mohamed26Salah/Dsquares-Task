@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Generate Token Use Case Protocol
 public protocol GenerateTokenUseCaseProtocol: Sendable {
-    func execute(userIdentifier: String) async throws -> Token
+    func execute(userIdentifier: String) async throws -> TokenEntity
 }
 
 // MARK: - Generate Token Use Case Implementation
@@ -21,7 +21,7 @@ public struct GenerateTokenUseCase: GenerateTokenUseCaseProtocol {
         self.repository = repository
     }
     
-    public func execute(userIdentifier: String) async throws -> Token {
+    public func execute(userIdentifier: String) async throws -> TokenEntity {
         return try await repository.generateToken(userIdentifier: userIdentifier)
     }
 }

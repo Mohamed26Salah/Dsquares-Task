@@ -8,8 +8,8 @@
 
 // MARK: - Data Layer Repository Protocol
 public protocol DsquaresRepoProtocol: Sendable {
-    func generateToken(userIdentifier: String) async throws -> Token
-    func getItems(requestBody: GetItemsRequestBody) async throws -> ItemsResponse
-    func getItemDetails(code: String) async throws -> ItemDetail
-    func purchase(requestBody: DataPurchaseRequestBody) async throws -> Purchase
+    func generateToken(userIdentifier: String) async throws -> TokenEntity
+    func getItems(requestBody: GetItemsRequestBody) async throws -> ItemsResponseEntity
+    func getItemDetails(code: String) async throws -> ItemDetailEntity
+    func purchase(requestBody: DataPurchaseRequestBody) async throws -> PurchaseEntity
 }

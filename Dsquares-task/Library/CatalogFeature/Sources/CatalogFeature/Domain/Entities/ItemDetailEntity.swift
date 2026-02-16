@@ -1,5 +1,5 @@
 //
-//  ItemDetail.swift
+//  ItemDetailEntity.swift
 //  CatalogFeature
 //
 //  Created by Mohamed Salah on 16/02/2026.
@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Item Detail Entity
-public struct ItemDetail: Sendable {
+public struct ItemDetailEntity: Sendable {
     public let brand: String
     public let locked: Bool
     public let categories: [String]
@@ -17,7 +17,7 @@ public struct ItemDetail: Sendable {
     public let description: String?
     public let rewardType: String
     public let imageUrl: String?
-    public let denominations: [Denomination]
+    public let denominations: [DenominationEntity]
     
     public init(
         brand: String,
@@ -28,7 +28,7 @@ public struct ItemDetail: Sendable {
         description: String?,
         rewardType: String,
         imageUrl: String?,
-        denominations: [Denomination]
+        denominations: [DenominationEntity]
     ) {
         self.brand = brand
         self.locked = locked

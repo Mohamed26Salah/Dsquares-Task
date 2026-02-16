@@ -1,5 +1,5 @@
 //
-//  Token.swift
+//  TokenEntity.swift
 //  CatalogFeature
 //
 //  Created by Mohamed Salah on 16/02/2026.
@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Token Entity
-public struct Token: Sendable {
+public struct TokenEntity: Sendable {
     public let tokenType: String
     public let accessToken: String
     public let expiresInMins: Int

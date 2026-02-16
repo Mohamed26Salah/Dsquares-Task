@@ -8,11 +8,11 @@
 import Foundation
 
 // MARK: - Data Layer Repository Implementation
-final class DsquaresRepo: DsquaresRepoProtocol, Sendable {
+public final class DsquaresRepo: DsquaresRepoProtocol, Sendable {
     
     private let networkManager: NetworkManagerProtocol
     
-    init(networkManager: NetworkManagerProtocol = NetworkManager.shared) {
+    public init(networkManager: NetworkManagerProtocol = NetworkManager.shared) {
         self.networkManager = networkManager
     }
     
@@ -21,7 +21,7 @@ final class DsquaresRepo: DsquaresRepoProtocol, Sendable {
     /// - Parameter userIdentifier: A unique identifier representing the user.
     /// - Returns: A `Token` domain model.
     /// - Throws: `NetworkError`
-    func generateToken(userIdentifier: String) async throws -> Token {
+    public func generateToken(userIdentifier: String) async throws -> TokenEntity {
         let endpoint = DsquaresEndpoint.generateToken(userIdentifier: userIdentifier)
         let response = try await networkManager.request(
             endpoint: endpoint,
@@ -47,9 +47,9 @@ final class DsquaresRepo: DsquaresRepoProtocol, Sendable {
     /// - Parameter requestBody: Request payload containing filters, search, and pagination parameters.
     /// - Returns: An `ItemsResponse` domain model.
     /// - Throws: `NetworkError` if the network request fails or backend validation fails.
-    func getItems(
+    public func getItems(
         requestBody: GetItemsRequestBody
-    ) async throws -> ItemsResponse {
+    ) async throws -> ItemsResponseEntity {
         let endpoint = DsquaresEndpoint.getItems(
            requestBody: requestBody
         )
@@ -66,7 +66,6 @@ final class DsquaresRepo: DsquaresRepoProtocol, Sendable {
                 message: response.message
             )
         }
-        
         return DTOMapper.toDomain(result)
     }
     
@@ -75,7 +74,7 @@ final class DsquaresRepo: DsquaresRepoProtocol, Sendable {
     /// - Parameter code: Unique item code.
     /// - Returns: An `ItemDetail` domain model.
     /// - Throws: `NetworkError` if the request fails or no valid result is returned.
-    func getItemDetails(code: String) async throws -> ItemDetail {
+    public func getItemDetails(code: String) async throws -> ItemDetailEntity {
         let endpoint = DsquaresEndpoint.getItemDetails(code: code)
         let response = try await networkManager.request(
             endpoint: endpoint,
@@ -98,9 +97,9 @@ final class DsquaresRepo: DsquaresRepoProtocol, Sendable {
     /// - Parameter requestBody: Purchase request payload including item and payment details.
     /// - Returns: A `Purchase` domain model representing the successful transaction.
     /// - Throws: `NetworkError`
-    func purchase(
+    public func purchase(
         requestBody: DataPurchaseRequestBody
-    ) async throws -> Purchase {
+    ) async throws -> PurchaseEntity {
         let endpoint = DsquaresEndpoint.purchase(
            requestBody: requestBody
         )

@@ -1,5 +1,5 @@
 //
-//  Purchase.swift
+//  PurchaseEntity.swift
 //  CatalogFeature
 //
 //  Created by Mohamed Salah on 16/02/2026.
@@ -8,15 +8,15 @@
 import Foundation
 
 // MARK: - Purchase Entity
-public struct Purchase: Sendable {
+public struct PurchaseEntity: Sendable {
     public let purchaseCode: String
     public let orderedAt: String
-    public let orders: [OrderItem]
+    public let orders: [OrderItemEntity]
     
     public init(
         purchaseCode: String,
         orderedAt: String,
-        orders: [OrderItem]
+        orders: [OrderItemEntity]
     ) {
         self.purchaseCode = purchaseCode
         self.orderedAt = orderedAt
@@ -25,7 +25,7 @@ public struct Purchase: Sendable {
 }
 
 // MARK: - Order Item Entity
-public struct OrderItem: Sendable {
+public struct OrderItemEntity: Sendable {
     public let rewardType: String
     public let code: String
     public let value: String
