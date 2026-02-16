@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import CatalogFeature
 
 @main
 struct Dsquares_taskApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SwiftUIView()
         }
     }
 }

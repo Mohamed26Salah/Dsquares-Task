@@ -37,7 +37,7 @@ enum NetworkError: LocalizedError, Sendable {
         case .noInternetConnection:
             return "No internet connection"
         case .apiError(let statusCode, let statusName, let message):
-            return "\(statusName): \(message ?? "An error occurred")"
+            return "\(statusCode),\(statusName): \(message ?? "An error occurred")"
         }
     }
 }

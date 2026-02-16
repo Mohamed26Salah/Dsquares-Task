@@ -14,7 +14,7 @@ final class SDKConfiguration: @unchecked Sendable {
     private(set) var accessToken: String?
     private(set) var baseURL: String = "https://giftcards-preprod.dsquares.com"
     private(set) var environment: Environment = .production
-    private(set) var language: String = "en" // "en" or "ar"
+    private(set) var language: String = "en"
     
     private init() {}
     

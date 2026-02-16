@@ -7,23 +7,8 @@
 
 import Foundation
 
-protocol DsquaresRepoProtocol: Sendable {
-    func generateToken(userIdentifier: String) async throws -> TokenResponseDTO
-    func getItems(
-        page: Int?,
-        pageSize: Int?,
-        name: String?,
-        categoryCode: String?,
-        rewardTypes: [String]?
-    ) async throws -> ItemsResponseDTO
-    func getItemDetails(code: String) async throws -> ItemDetailDTO
-    func purchase(
-        referenceCode: String,
-        orderItems: [PurchaseOrderItem]
-    ) async throws -> PurchaseResponseDTO
-}
-
-final class DsquaresRepop: DsquaresRepoProtocol, Sendable {
+// MARK: - Data Layer Repository Implementation
+final class DsquaresRepo: DsquaresRepoProtocol, Sendable {
     
     private let networkManager: NetworkManagerProtocol
     
@@ -31,7 +16,12 @@ final class DsquaresRepop: DsquaresRepoProtocol, Sendable {
         self.networkManager = networkManager
     }
     
-    func generateToken(userIdentifier: String) async throws -> TokenResponseDTO {
+    /// Generates a backend access token and stores it inside `SDKConfiguration`.
+    ///
+    /// - Parameter userIdentifier: A unique identifier representing the user.
+    /// - Returns: A `Token` domain model.
+    /// - Throws: `NetworkError`
+    func generateToken(userIdentifier: String) async throws -> Token {
         let endpoint = DsquaresEndpoint.generateToken(userIdentifier: userIdentifier)
         let response = try await networkManager.request(
             endpoint: endpoint,
@@ -49,22 +39,19 @@ final class DsquaresRepop: DsquaresRepoProtocol, Sendable {
         // Store the access token
         SDKConfiguration.shared.setAccessToken(result.accessToken)
         
-        return result
+        return DTOMapper.toDomain(result)
     }
     
+    /// Retrieves catalog items from the backend.
+    ///
+    /// - Parameter requestBody: Request payload containing filters, search, and pagination parameters.
+    /// - Returns: An `ItemsResponse` domain model.
+    /// - Throws: `NetworkError` if the network request fails or backend validation fails.
     func getItems(
-        page: Int? = 1,
-        pageSize: Int? = 20,
-        name: String? = nil,
-        categoryCode: String? = nil,
-        rewardTypes: [String]? = nil
-    ) async throws -> ItemsResponseDTO {
+        requestBody: GetItemsRequestBody
+    ) async throws -> ItemsResponse {
         let endpoint = DsquaresEndpoint.getItems(
-            page: page,
-            pageSize: pageSize,
-            name: name,
-            categoryCode: categoryCode,
-            rewardTypes: rewardTypes
+           requestBody: requestBody
         )
         
         let response = try await networkManager.request(
@@ -80,10 +67,15 @@ final class DsquaresRepop: DsquaresRepoProtocol, Sendable {
             )
         }
         
-        return result
+        return DTOMapper.toDomain(result)
     }
     
-    func getItemDetails(code: String) async throws -> ItemDetailDTO {
+    /// Fetches detailed information for a specific catalog item.
+    ///
+    /// - Parameter code: Unique item code.
+    /// - Returns: An `ItemDetail` domain model.
+    /// - Throws: `NetworkError` if the request fails or no valid result is returned.
+    func getItemDetails(code: String) async throws -> ItemDetail {
         let endpoint = DsquaresEndpoint.getItemDetails(code: code)
         let response = try await networkManager.request(
             endpoint: endpoint,
@@ -98,16 +90,19 @@ final class DsquaresRepop: DsquaresRepoProtocol, Sendable {
             )
         }
         
-        return result
+        return DTOMapper.toDomain(result)
     }
     
+    /// Performs a purchase transaction through the backend.
+    ///
+    /// - Parameter requestBody: Purchase request payload including item and payment details.
+    /// - Returns: A `Purchase` domain model representing the successful transaction.
+    /// - Throws: `NetworkError`
     func purchase(
-        referenceCode: String,
-        orderItems: [PurchaseOrderItem]
-    ) async throws -> PurchaseResponseDTO {
+        requestBody: DataPurchaseRequestBody
+    ) async throws -> Purchase {
         let endpoint = DsquaresEndpoint.purchase(
-            referenceCode: referenceCode,
-            orderItems: orderItems
+           requestBody: requestBody
         )
         
         let response = try await networkManager.request(
@@ -123,6 +118,6 @@ final class DsquaresRepop: DsquaresRepoProtocol, Sendable {
             )
         }
         
-        return result
+        return DTOMapper.toDomain(result)
     }
 }
