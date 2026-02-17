@@ -112,14 +112,6 @@ If you want, I can also:
 
 ## Screenshots
 
-- Catalog / Items list
-
-![Catalog screen](<img src="ScreenShots/1.png" width="300" />)
-
-- Item details
-
-![Item detail screen](<img src="ScreenShots/2.png" width="300" />)
-
 <p float="left">
   <img src="ScreenShots/1.png" width="300" />
   <img src="ScreenShots/2.png" width="300" />
