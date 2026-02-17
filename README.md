@@ -114,8 +114,13 @@ If you want, I can also:
 
 - Catalog / Items list
 
-![Catalog screen](Screenshots/1.png)
+![Catalog screen](<img src="ScreenShots/1.png" width="300" />)
 
 - Item details
 
-![Item detail screen](Screenshots/2.png)
+![Item detail screen](<img src="ScreenShots/2.png" width="300" />)
+
+<p float="left">
+  <img src="ScreenShots/1.png" width="300" />
+  <img src="ScreenShots/2.png" width="300" />
+</p>
