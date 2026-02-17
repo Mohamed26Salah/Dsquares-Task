@@ -114,8 +114,8 @@ If you want, I can also:
 
 - Catalog / Items list
 
-![Catalog screen](screenshots/1.png)
+![Catalog screen](Screenshots/1.png)
 
 - Item details
 
-![Item detail screen](screenshots/2.png)
+![Item detail screen](Screenshots/2.png)
