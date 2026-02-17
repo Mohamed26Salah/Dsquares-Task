@@ -41,7 +41,7 @@ Key files and locations:
 
 ## Tech Stack
 
-- Language: Swift
+- Language: Swift 6
 - UI: SwiftUI
 - Packaging: Swift Package Manager (`Package.swift` in `Library/CatalogFeature`)
 - Tests: Xcode unit tests under `Dsquares-taskTests` and `Library/CatalogFeature/Tests`
